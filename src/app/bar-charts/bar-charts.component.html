@@ -1,0 +1,30 @@
+<p>Let the Chart Factory Begins !!!</p>
+
+
+<mat-form-field>
+        <mat-label>Select Your JSON </mat-label>
+        <mat-select  [(ngModel)]="selectedJson" (selectionChange)="onChangejson(selectedJson)">
+          <mat-option *ngFor="let json of JSONList" [(value)]="json.name">
+            {{json.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      &nbsp;&nbsp;
+      <mat-form-field>
+          <mat-label>Select your Type </mat-label>
+          <mat-select  [(ngModel)]="selectedGraph" (selectionChange)="createGraph(selectedJson,selectedGraph)">
+            <mat-option *ngFor="let type of ChartList" [(value)]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <!-- <select [(ngModel)]="selectedJson" (change)="selected()">
+          <option *ngFor="let json of JSONList" [(value)]="json.name">{{json.name}}</option>
+        </select> -->
+
+<div id="barchart1">
+
+
+</div>

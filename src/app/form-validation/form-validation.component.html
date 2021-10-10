@@ -1,0 +1,52 @@
+<p class="title"> Contact Form </p>
+<div class="form">
+  <form [formGroup]="contactForm" class="form-border" #form>
+      <div class="form-field">
+        <span class="field-title">Name:</span>
+        <span class="field-input"> <input type="text" formControlName="name"> </span>
+        <div class="error" [hidden]="name.untouched && name.pristine">
+          <div class="err-text" id="name-err-req"  *ngIf="name.hasError('required')">Name is <strong>required</strong></div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <span class="field-title">Phone:</span>
+        <span class="field-input"> <input type="text" formControlName="phone"> </span>
+        <div class="error" [hidden]="phone.untouched && phone.pristine">
+          <div class="err-text" id="phone-err-req"  *ngIf="phone.hasError('required')">Phone is <strong>required</strong></div>
+          <div class="err-text" id="phone-err-pattern" *ngIf="phone.hasError('pattern')">Phone should be a <strong>number</strong></div>
+          <div class="err-text" id="phone-err-length" *ngIf="phone.hasError('maxlength') || phone.hasError('minlength')">Phone number <strong>should have 10 digits</strong></div>
+        </div>
+      </div>
+
+      <div formGroupName="address" class="form-border">
+          <b>Address</b>
+          <div class="form-field">
+            <span class="field-title">Street:</span>
+            <span class="field-input"> <input type="text" formControlName="street"> </span>
+          </div>
+
+          <div class="form-field">
+            <span class="field-title">City:</span>
+            <span class="field-input"> <input type="text" formControlName="city"> </span>
+          </div>
+
+          <div class="form-field">
+            <span class="field-title">ZIP:</span>
+            <span class="field-input"> <input type="text" formControlName="zip"> </span>
+            <div class="error" *ngIf="zip.touched && zip.dirty">
+              <div class="err-text"  *ngIf="zip.hasError('pattern')">Zip should be a <strong>number</strong></div>
+              <div class="err-text"  *ngIf="zip.hasError('maxlength') || zip.hasError('minlength')">Zip number <strong>should have 6 digits</strong></div>
+            </div>
+          </div>
+      </div>
+
+      <input type="submit" class="submit-btn" (click)="onSubmit()" value="Submit">
+  </form>
+
+  <div *ngIf="contactForm.dirty" class="form-status">
+    <div>formvalue: {{contactForm.value | json}}</div>
+    <div>formstatus: {{ contactForm.status }}</div>
+  </div>
+
+</div>

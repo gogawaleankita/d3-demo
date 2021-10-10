@@ -1,0 +1,36 @@
+<div>
+    <!-- <app-bar-charts></app-bar-charts> -->
+
+
+<!-- Enter Your Name:
+  <input  #userName type="text" [value]='name' >
+  <button #btn (click)=welcomeMe(userName.value)> Welcome Me </button>
+<br>
+<h2> Message from Event Binding</h2>
+<h3 id="output" *ngIf="show">
+welcome {{name}}
+</h3> -->
+
+</div>
+
+<div>
+<mat-tab-group>
+  <mat-tab label="Activity-tracker">
+    <app-meta-data-demo></app-meta-data-demo>
+  </mat-tab>
+  <mat-tab label="Multiple Charts">
+   
+   <app-bar-charts></app-bar-charts>
+  </mat-tab>
+  <mat-tab label="mat-chart">
+  <p>Nothing Works Here </p>
+  <app-table-with-bar-chart></app-table-with-bar-chart>
+  </mat-tab>
+  <mat-tab label='Application Form'>
+    <div>
+      <app-form-validation></app-form-validation>
+     </div> 
+  </mat-tab>
+</mat-tab-group>
+
+</div>

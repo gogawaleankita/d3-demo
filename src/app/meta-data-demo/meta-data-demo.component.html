@@ -1,0 +1,15 @@
+<h1>Fresco PLAY Activity Tracker</h1>
+
+<div>
+    <div *ngFor="let todo of todos; let i=index" class="todoItem">
+        <input type="checkbox" [(ngModel)]="todo.done" (change)="checkValue(isChecked?'A':'B')"/>
+        <span [ngClass]="{'checked': todo.done}">{{i+1}}. {{ todo.desc }}</span>
+    </div>
+    <span *ngIf="todos.length == 0">No Activities to track! Start by adding one</span><br/>
+    <input id="newTodo" type="text" [(ngModel)]="newToDo">
+    <span *ngIf="error" style="color:red;">Please enter an activity!</span>
+    <br/>
+    <button id="addActivity" (click)="addMore()">Add an Activity!</button>
+    <button id="clearAll" (click)="clearAll()">Clear All</button>
+</div>
+
